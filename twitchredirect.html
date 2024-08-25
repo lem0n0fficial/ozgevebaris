@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OzgeveBaris İstek Sistemi</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            window.close(); // Bu kod bazı tarayıcılarda çalışmayabilir
-        });
-    </script>
+    // URL'den erişim token'ını al
+    const params = new URLSearchParams(window.location.hash.substring(1));
+    const token = params.get('access_token');
+
+    if (token) {
+      // Token'ı localStorage'da sakla
+      localStorage.setItem('twitchToken', token);
+
+      // Kullanıcıyı bir bilgilendirme sayfasına yönlendir
+      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectsuccess.html'; // Başarıyla bağlandığınızı belirten bir sayfa
+    } else {
+      // Hata mesajı veya hata yönlendirmesi
+      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectfailed.html'; // Hata oluştuğunu belirten bir sayfa
+    }
+  </script>
 </head>
 <body>
-    <p>Yetkilendirildi, bu sayfayı kapatıp uygulamaya dönebilirsin.</p>
+    <p>Twitch hesabın OzgeveBaris İstek Sistemi'ne bağlanıyor, lütfen bekle...</p>
 </body>
 </html>
