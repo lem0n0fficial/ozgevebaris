@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OzgeveBaris İstek Sistemi</title>
-    <script>
+  <title>Twitch Bağlanıyor...</title>
+</head>
+<body>
+  <script>
     // URL'den erişim token'ını al
     const params = new URLSearchParams(window.location.hash.substring(1));
     const token = params.get('access_token');
@@ -13,15 +13,12 @@
       // Token'ı localStorage'da sakla
       localStorage.setItem('twitchToken', token);
 
-      // Kullanıcıyı bir bilgilendirme sayfasına yönlendir
-      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectsuccess.html'; // Başarıyla bağlandığınızı belirten bir sayfa
+      // Başarıyla bağlandığınızı belirten bir sayfaya yönlendirme
+      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectsuccess.html'; // Başarı sayfası URL'si
     } else {
-      // Hata mesajı veya hata yönlendirmesi
-      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectfailed.html'; // Hata oluştuğunu belirten bir sayfa
+      // Hata oluştuysa yönlendirme
+      window.location.href = 'https://lem0n0fficial.github.io/ozgevebaris/twitchredirectfailed.html'; // Hata sayfası URL'si
     }
   </script>
-</head>
-<body>
-    <p>Twitch hesabın OzgeveBaris İstek Sistemi'ne bağlanıyor, lütfen bekle...</p>
 </body>
 </html>
