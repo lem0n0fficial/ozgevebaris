@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OzgeveBaris İstek Sistemi</title>
+  <style>
+        body {
+            display: flex;
+            justify-content: center; /* Yatayda ortalama */
+            align-items: center;    /* Dikeyde ortalama */
+            height: 100vh;          /* Ekran yüksekliği kadar uzat */
+            margin: 0;
+        }
+  </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // URL fragment'inden access_token'i al
@@ -17,16 +26,16 @@
         // 3 saniye bekledikten sonra ana sayfaya yönlendir
         setTimeout(function() {
           window.location.href = "https://lem0n0fficial.github.io/ozgevebaris/";
-        }, 3000);
+        }, 2000);
       } else {
         // Token bulunamazsa hata göster
-        document.getElementById('status').innerText = 'Hata: URL adresinde istemci kimliği veya erişim anahtarı eksik. Lütfen tekrar bağlamayı dene, sorun devam ederse geliştiriciye bildir.';
+        document.getElementById('status').innerText = 'Access token not found.';
       }
     });
   </script>
 </head>
 <body>
-  <h1>OzgeveBaris İstek Sistemi</h1>
-  <p id="status">Twitch hesabın ilişkilendiriliyor...</p>
+  <img src="https://i.hizliresim.com/gy94u7z.png" alt="HATA" width="500" height="500">
+  <p id="status">Hazır ol! Twitch ile giriş yapıyorsun...</p>
 </body>
 </html>
