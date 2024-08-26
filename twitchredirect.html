@@ -3,54 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twitch OAuth Redirect</title>
+  <title>OzgeveBaris İstek Sayfası</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // URL fragment'inden access_token'i al
+      const urlParams = new URLSearchParams(window.location.hash.substring(1));
+      const accessToken = urlParams.get('access_token');
+
+      if (accessToken) {
+        // Access token'i localStorage'a kaydet
+        localStorage.setItem('twitch_access_token', accessToken);
+
+        // 3 saniye bekledikten sonra ana sayfaya yönlendir
+        setTimeout(function() {
+          window.location.href = "https://lem0n0fficial.github.io/ozgevebaris/";
+        }, 3000);
+      } else {
+        // Token bulunamazsa hata göster
+        document.getElementById('status').innerText = 'Access token not found.';
+      }
+    });
+  </script>
 </head>
 <body>
   <h1>Twitch User Information</h1>
-  <p id="status">Fetching user data...</p>
-  <div id="user-info" style="display: none;">
-    <center>
-    <img id="profile-image" alt="Profile Image" style="width: 100px; height: 100px;">
-    <p><strong>Esenlikler,</strong> <span id="username"></span></p>
-    </center>
-  </div>
-
-  <script>
-    // Get the access token from the URL fragment
-    const urlParams = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = urlParams.get('access_token');
-
-    if (accessToken) {
-      // Store the access token in localStorage
-      localStorage.setItem('twitch_access_token', accessToken);
-
-      // Function to fetch user information from Twitch
-      async function fetchTwitchUserData() {
-        const response = await fetch('https://api.twitch.tv/helix/users', {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Client-Id': 'e4k95eo31jhm8i33tikukmtehoayfo'  // Replace with your client ID
-          }
-        });
-
-        const data = await response.json();
-        const user = data.data[0];
-
-        // Display the user information
-        document.getElementById('username').innerText = user.display_name;
-        document.getElementById('profile-image').src = user.profile_image_url;
-        document.getElementById('status').style.display = 'none';
-        document.getElementById('user-info').style.display = 'block';
-      }
-
-      // Fetch user data
-      fetchTwitchUserData().catch(error => {
-        console.error('Error fetching Twitch user data:', error);
-        document.getElementById('status').innerText = 'Error fetching user data.';
-      });
-    } else {
-      document.getElementById('status').innerText = 'Access token not found.';
-    }
-  </script>
+  <p id="status">Twitch hesabın ilişkilendiriliyor...</p>
 </body>
 </html>
