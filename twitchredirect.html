@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OzgeveBaris İstek Sayfası</title>
+  <title>OzgeveBaris İstek Sistemi</title>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // URL fragment'inden access_token'i al
@@ -20,13 +20,13 @@
         }, 3000);
       } else {
         // Token bulunamazsa hata göster
-        document.getElementById('status').innerText = 'Access token not found.';
+        document.getElementById('status').innerText = 'Hata: URL adresinde istemci kimliği veya erişim anahtarı eksik. Lütfen tekrar bağlamayı dene, sorun devam ederse geliştiriciye bildir.';
       }
     });
   </script>
 </head>
 <body>
-  <h1>Twitch User Information</h1>
+  <h1>OzgeveBaris İstek Sistemi</h1>
   <p id="status">Twitch hesabın ilişkilendiriliyor...</p>
 </body>
 </html>
